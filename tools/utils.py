@@ -20,3 +20,34 @@ def print_error(polynom, letter, index, code):
 	}
 	print(error_message.get(code))
 	exit()
+
+def format_check(polynom, index):
+	string = polynom[index:]
+	substring2 = polynom[:index]
+	for i in range(len(string)):
+		if i == 0 or string[i] == ' ':
+			continue
+		if string[i].isdigit():
+			print_error(polynom, 0, 0, 2)
+		if string[i] == '*':
+			substring = string[i:]
+			for j in range(len(substring)):
+				if j == 0 or substring[j] == ' ':
+					continue
+				if substring[j].isdigit():
+					for k in range(len(substring2)):
+						if substring2[k].isdigit() or substring2[k] == '*':
+							print_error(polynom, 0, 0, 2)
+					return True
+			print_error(polynom, 0, 0, 2)
+		else:
+			print_error(polynom, 0, 0, 2)
+	found = False
+	for l in range(len(substring2)):
+		if substring2[l] == ' ':
+			continue
+		if substring2[l] == '*':
+			found = True
+		if substring2[l].isdigit() and found == True:
+			print_error(polynom, 0, 0, 2)
+	return True

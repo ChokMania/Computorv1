@@ -1,5 +1,5 @@
 import re
-from tools.utils import lookup_index, atof
+from tools.utils import lookup_index, atof, print_error, format_check
 from tools.Polynom import Polynom
 
 charset = "0123456789+-*=X^. "
@@ -41,6 +41,7 @@ def set_polynom_list(side, degree):
 					else:
 						factor = 1
 					if x_index != -1:
+						format_check(polynomList[i], x_index)
 						power = 1
 					else:
 						power = 0
