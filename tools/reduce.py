@@ -1,7 +1,7 @@
 def display_equation(left, message):
 	equation = message
 	for i,poly in enumerate(left):
-		if i != 0 or poly.sign == False:
+		if i != 0 or poly.sign == False and poly.factor != 0:
 			equation += "- " if poly.sign == False else "+ "
 		equation += f"{poly.factor} * X^{poly.power} "
 	equation += "= 0"
