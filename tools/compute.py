@@ -59,3 +59,4 @@ def compute(left, verbose, degree):
 			print ("Every real are solution")
 		else:
 			print("I can't solve this equation")
+		exit()
