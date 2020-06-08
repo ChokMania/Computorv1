@@ -10,6 +10,8 @@ def set_polynom_list(side, degree):
 	side_list = []
 	separator = re.split('[0-9X^.* ]+', side)[:-1]
 	polynomList = re.split('[\-+=]', side)
+	if not separator:
+		print_error(0,0,0,0)
 	if separator[0] == "-":
 		polynomList = re.split('[\-+=]', side)[1:]
 	for i in range(len(separator)):
