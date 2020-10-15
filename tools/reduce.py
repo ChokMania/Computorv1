@@ -28,14 +28,17 @@ def reduce(left, right, degree):
 	for i in range(len(left)):
 		result = check_power(left[i], final)
 		if result >= 0:
+			if final[result].sign == False:
+				final[result].factor = -final[result].factor
 			if left[i].sign == False:
-				if final[result] == 0:
-					final[result].factor = left[i].factor
-					final[result].sign = False
-				else:
-					final[result].factor = final[result].factor - left[i].factor
+				left[i].factor = -left[i].factor
+			final[result].factor = final[result].factor + left[i].factor
+
+			if final[result].factor < 0:
+				final[result].sign = False
+				final[result].factor = -final[result].factor
 			else :
-				final[result].factor = final[result].factor + left[i].factor
+				final[result].sign = True
 		else:
 			final.append(left[i])
 	display_equation(final, "Reduced form: ")

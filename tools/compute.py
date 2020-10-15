@@ -58,5 +58,5 @@ def compute(left, verbose, degree):
 		if c == 0:
 			print ("Every real are solution")
 		else:
-			print("I can't solve this equation")
+			print("There is no solution for this equation")
 		exit()
